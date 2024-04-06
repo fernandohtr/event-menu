@@ -1,0 +1,17 @@
+.menu h2 {
+  text-align: center;
+  margin: 10% 0;
+}
+
+.product-card {
+  width: 250px;
+  height: 250px;
+  background-color: rgb(41, 255, 255);
+  margin-bottom: 5%;
+  text-align: center;
+  
+}
+
+.product-card li {
+  list-style: none;
+}

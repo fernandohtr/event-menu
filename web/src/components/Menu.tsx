@@ -1,3 +1,5 @@
+import "./Menu.css"
+
 import { useEffect, useState } from "react"
 
 interface Product {
@@ -20,15 +22,17 @@ export function Menu() {
   }, [])
   
   return (
-    <>
-      <h1>Menu</h1>
+    <div className="menu">
+      <h2>Cardápio</h2>
       <ul>
         { products.map(product => {
           return (
-            <li key={ product.name }>{ product.name } - { product.price }</li>
+            <div className="product-card">
+              <li key={ product.name }>{ product.name } - { product.price }</li>
+            </div>
           )
         })}
       </ul>
-    </>
+    </div>
   )
 }
