@@ -1,0 +1,52 @@
+services:
+  db-menu:
+    image: postgres:16-alpine
+    container_name: db-menu
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=event_menu
+      - POSTGRES_USER=event_menu
+      - POSTGRES_PASSWORD=abc123
+    volumes:
+      - "db:/var/lib/postgresql/data"
+    networks:
+      - event-menu
+
+  api-menu:
+    build:
+      context: ./
+      dockerfile: api-local.Dockerfile
+    container_name: api-menu
+    ports:
+      - "8001:8000"
+    environment:
+      - POSTGRES_DB=event_menu
+      - POSTGRES_USER=event_menu
+      - POSTGRES_PASSWORD=abc123
+      - POSTGRES_HOST=db-menu
+      - POSTGRES_PORT=5432
+    depends_on:
+      - db-menu
+    networks:
+      - event-menu
+    
+  web-menu:
+    build:
+      context: ./
+      dockerfile: web-local.Dockerfile
+    container_name: web-menu
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db-menu
+      - api-menu
+    networks:
+      - event-menu
+
+networks:
+  event-menu:
+    driver: bridge
+
+volumes:
+  db:
