@@ -3,15 +3,22 @@
   margin: 10% 0;
 }
 
+.menu ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
 .product-card {
   width: 250px;
   height: 250px;
   background-color: rgb(41, 255, 255);
-  margin-bottom: 5%;
-  text-align: center;
-  
+  margin: 0 auto;
 }
 
 .product-card li {
+  height: 100%;
   list-style: none;
+  text-align: center;
+  line-height: 1500%;
 }
