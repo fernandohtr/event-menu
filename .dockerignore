@@ -1,0 +1,12 @@
+*.md
+*/*.Dockerfile
+*/local.yml
+logs
+*.log
+npm-debug.log*
+
+dist
+*.local
+
+**/__pycache__/
+**/db.sqlite3
