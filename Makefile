@@ -1,8 +1,10 @@
+DOCKER_RUN=docker compose -f local.yml
+
 up:
-	docker compose -f local.yml up
+	${DOCKER_RUN} up
 
 stop:
-	docker compose -f local.yml stop
+	${DOCKER_RUN} stop
 
 createuser:
-	docker compose -f local.yml exec api-menu ./src/manage.py createsuperuser
+	${DOCKER_RUN} exec api-menu ./src/manage.py createsuperuser
