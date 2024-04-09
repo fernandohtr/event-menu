@@ -16,7 +16,7 @@ services:
   api-menu:
     build:
       context: ./
-      dockerfile: api-local.Dockerfile
+      dockerfile: ./docker/local/api/Dockerfile
     container_name: api-menu
     ports:
       - "8001:8000"
@@ -34,7 +34,7 @@ services:
   web-menu:
     build:
       context: ./
-      dockerfile: web-local.Dockerfile
+      dockerfile: ./docker/local/web/Dockerfile
     container_name: web-menu
     ports:
       - "8080:8080"
