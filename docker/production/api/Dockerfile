@@ -12,7 +12,9 @@ RUN pip3 install -r requirements.txt --no-cache-dir
 COPY ./docker/local/api/start.sh /start.sh
 RUN chmod +x /start.sh
 
+COPY ./api/src ./src
+
 EXPOSE 8000
-ENV DJANGO_SETTINGS_MODULE=config.settings.local
+ENV DJANGO_SETTINGS_MODULE=config.settings.production
 
 CMD ["./src/manage.py", "runserver", "0.0.0.0:8000"]
