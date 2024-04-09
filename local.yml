@@ -4,10 +4,8 @@ services:
     container_name: db-menu
     ports:
       - "5432:5432"
-    environment:
-      - POSTGRES_DB=event_menu
-      - POSTGRES_USER=event_menu
-      - POSTGRES_PASSWORD=abc123
+    env_file:
+      - .local.env
     volumes:
       - "db:/var/lib/postgresql/data"
     networks:
@@ -15,17 +13,14 @@ services:
 
   api-menu:
     build:
-      context: ./
+      context: .
       dockerfile: ./docker/local/api/Dockerfile
     container_name: api-menu
+    command: /bin/sh /start.sh
     ports:
       - "8001:8000"
-    environment:
-      - POSTGRES_DB=event_menu
-      - POSTGRES_USER=event_menu
-      - POSTGRES_PASSWORD=abc123
-      - POSTGRES_HOST=db-menu
-      - POSTGRES_PORT=5432
+    env_file:
+      - .local.env
     depends_on:
       - db-menu
     networks:
@@ -33,7 +28,7 @@ services:
     
   web-menu:
     build:
-      context: ./
+      context: .
       dockerfile: ./docker/local/web/Dockerfile
     container_name: web-menu
     ports:
