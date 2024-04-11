@@ -64,7 +64,11 @@ LANGUAGE_CODE = "en-us"
 TIME_ZONE = "America/Sao_Paulo"
 USE_I18N = True
 USE_TZ = True
-STATIC_URL = "static/"
+STATIC_URL = "assets/"
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+MEDIA_URL = "images/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "assets/images")
+IMAGE_SIZE_DIMENSION = 300
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
