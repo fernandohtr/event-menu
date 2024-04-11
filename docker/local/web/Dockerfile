@@ -7,4 +7,3 @@ COPY ./web/package.json ./web/package-lock.json ./
 RUN npm i
 
 CMD [ "npm", "run", "dev" ]
-
