@@ -33,6 +33,7 @@ services:
       context: .
       dockerfile: ./docker/local/web/Dockerfile
     container_name: web-menu
+    command: /bin/sh /start.sh
     ports:
       - 8080:8080
     volumes:

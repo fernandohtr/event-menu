@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 interface Product {
   name: string
   price: number
+  image: string
 }
 
 export function Menu() {
@@ -27,9 +28,10 @@ export function Menu() {
       <ul>
         { products.map(product => {
           return (
-            <div className="product-card">
-              <li key={ product.name }>{ product.name } - { product.price }</li>
-            </div>
+            <img src={ product.image } alt="" />
+            // <div className="product-card">
+            //   <li key={ product.name }>{ product.name } - { product.price }</li>
+            // </div>
           )
         })}
       </ul>
