@@ -23,18 +23,21 @@ export function Menu() {
   }, [])
   
   return (
-    <div className="menu">
+    <section className="products">
       <h2>Cardápio</h2>
-      <ul>
+      <div className="menu">
         { products.map(product => {
           return (
-            <img src={ product.image } alt="" />
-            // <div className="product-card">
-            //   <li key={ product.name }>{ product.name } - { product.price }</li>
-            // </div>
+            <div className="product-card" key={ product.name }>
+              <img src={ product.image } alt="" />
+              <div className="product-description">
+                <p>{ product.name }</p>
+                <p>R$ { product.price.toString().replace(".", ",") }</p>
+              </div>
+            </div>
           )
         })}
-      </ul>
-    </div>
+      </div>
+    </section>
   )
 }
