@@ -1,17 +1,11 @@
-.header {
+nav {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  padding: 2rem 0;
   background-color: rgb(239, 153, 73);
+  justify-content: center;
 }
 
-.header h1 {
-  text-align: center;
-}
-
-.header p {
-  text-align: center;
-  font-size: 1.3rem;
-  font-weight: 500;
+nav img {
+  max-height: 30svh;
+  width: 60%;
 }
