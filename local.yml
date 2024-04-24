@@ -17,6 +17,8 @@ services:
       dockerfile: ./docker/local/api/Dockerfile
     container_name: api-menu
     command: /bin/sh /start.sh
+    stdin_open: true
+    tty: true
     ports:
       - 8001:8000
     env_file:
@@ -35,7 +37,7 @@ services:
     container_name: web-menu
     command: /bin/sh /start.sh
     ports:
-      - 8080:8080
+      - 5500:5500
     volumes:
       - ./web:/app
     depends_on:
