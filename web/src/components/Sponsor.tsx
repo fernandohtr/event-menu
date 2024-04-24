@@ -2,7 +2,7 @@ import "./Sponsor.css"
 
 export function Sponsor() {
   return (
-    <div className="sponsor">
+    <section className="sponsors">
       <h2>Sponsors</h2>
       <ul>
         <div className="sponsor-card">
@@ -15,6 +15,6 @@ export function Sponsor() {
           <li>patrocinador</li>
         </div>
       </ul>
-    </div>
+    </section>
   )
 }

@@ -29,7 +29,9 @@ export function Menu() {
         { products.map(product => {
           return (
             <div className="product-card" key={ product.name }>
-              <img src={ product.image } alt="" />
+              <div className="image-box">
+                <img src={ product.image } alt="" />
+              </div>
               <div className="product-description">
                 <p>{ product.name }</p>
                 <p>R$ { product.price.toString().replace(".", ",") }</p>
