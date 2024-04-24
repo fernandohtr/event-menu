@@ -8,3 +8,12 @@ class Product(models.Model):
 
     def __str__(self) -> str:
         return self.name
+
+
+class Sponsor(models.Model):
+    name = models.CharField(max_length=150)
+    url_social_media = models.URLField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True)
+
+    def __str__(self) -> str:
+        return self.name

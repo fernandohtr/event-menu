@@ -5,11 +5,12 @@ from django.conf.urls.static import static
 
 from rest_framework import routers
 
-from v1.views import ProductViewSet
+from v1.views import ProductViewSet, SponsorViewSet
 
 router = routers.SimpleRouter()
 
 router.register(r"api/v1/products", ProductViewSet)
+router.register(r"api/v1/sponsors", SponsorViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

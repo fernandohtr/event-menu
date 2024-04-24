@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.conf import settings
 from django.core.files.base import ContentFile
 
-from v1.models import Product
+from v1.models import Sponsor
 
 from PIL import Image
 
@@ -19,8 +19,8 @@ image_types = {
 }
 
 
-@receiver(pre_save, sender=Product)
-def resize_product_image(sender, instance, **kwargs):
+@receiver(pre_save, sender=Sponsor)
+def resize_sponsor_image(sender, instance, **kwargs):
     if bool(instance.image):
         image = Image.open(instance.image)
 
