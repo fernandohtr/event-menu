@@ -12,7 +12,7 @@ export function Menu() {
   const [ products, setProducts ] = useState<Product[]>([])
 
   useEffect(() => {
-    const apiUrl = new URL("http://localhost:8001/api/v1/products")
+    const apiUrl = new URL(`${import.meta.env.VITE_API_URL}/api/v1/products`)
 
     fetch(apiUrl)
       .then(response => response.json())

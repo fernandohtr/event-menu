@@ -1,8 +1,11 @@
 from .base import *
 
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-DEBUG = True
-ALLOWED_HOSTS = ["*"]
+DEBUG = False
+ALLOWED_HOSTS = [
+    ".localhost",
+    ".127.0.0.1",
+]
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -13,4 +16,9 @@ DATABASES = {
         "PORT": os.getenv("POSTGRES_PORT"),
     }
 }
-CORS_ORIGIN_ALLOW_ALL = True
+STATIC_ROOT = "/staticfiles/"
+MEDIA_ROOT = "/mediafiles/"
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8080",
+    "http://127.0.0.1:8080",
+]

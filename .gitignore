@@ -1,6 +1,7 @@
 logs
 *.log
 npm-debug.log*
+.env
 
 **/node_modules
 dist
@@ -10,4 +11,4 @@ dist-ssr
 **/__pycache__/
 **/db.sqlite3
 data/
-**/config/assets
+**/config/mediafiles

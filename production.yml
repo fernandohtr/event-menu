@@ -1,0 +1,54 @@
+services:
+  db-menu:
+    image: postgres:16-alpine
+    container_name: db-menu
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - event-menu
+
+  api-menu:
+    build:
+      context: .
+      dockerfile: ./docker/production/api/Dockerfile
+    container_name: api-menu
+    command: /bin/sh /start.sh
+    expose:
+      - 8000
+    env_file:
+      - .env
+    volumes:
+      - static:/staticfiles/
+      - media:/mediafiles/
+    depends_on:
+      - db-menu
+    networks:
+      - event-menu
+
+  nginx-menu:
+    build:
+      context: .
+      dockerfile: ./docker/production/nginx/Dockerfile
+    container_name: nginx-menu
+    volumes:
+      - static:/staticfiles/
+      - media:/mediafiles/
+    ports:
+      - 8080:80
+    depends_on:
+      - api-menu
+    networks:
+      - event-menu
+
+networks:
+  event-menu:
+    driver: bridge
+
+volumes:
+  db:
+  static:
+  media:

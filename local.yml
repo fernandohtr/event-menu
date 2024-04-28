@@ -1,7 +1,7 @@
 services:
-  db-menu:
+  db-menu-local:
     image: postgres:16-alpine
-    container_name: db-menu
+    container_name: db-menu-local
     ports:
       - 5432:5432
     env_file:
@@ -11,38 +11,38 @@ services:
     networks:
       - event-menu
 
-  api-menu:
+  api-menu-local:
     build:
       context: .
       dockerfile: ./docker/local/api/Dockerfile
-    container_name: api-menu
+    container_name: api-menu-local
     command: /bin/sh /start.sh
     stdin_open: true
     tty: true
     ports:
-      - 8001:8000
+      - 8000:8000
     env_file:
       - .local.env
     volumes:
       - ./api:/app
     depends_on:
-      - db-menu
+      - db-menu-local
     networks:
       - event-menu
     
-  web-menu:
+  web-menu-local:
     build:
       context: .
       dockerfile: ./docker/local/web/Dockerfile
-    container_name: web-menu
+    container_name: web-menu-local
     command: /bin/sh /start.sh
     ports:
       - 5500:5500
     volumes:
       - ./web:/app
     depends_on:
-      - db-menu
-      - api-menu
+      - db-menu-local
+      - api-menu-local
     networks:
       - event-menu
 

@@ -13,7 +13,7 @@ export function Sponsor() {
   const [ sponsors, setSponsors ] = useState<Sponsor[]>([])
 
   useEffect(() => {
-    const apiUrl = new URL("http://localhost:8001/api/v1/sponsors")
+    const apiUrl = new URL(`${import.meta.env.VITE_API_URL}/api/v1/products`)
 
     fetch(apiUrl)
       .then(response => response.json())
