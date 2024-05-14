@@ -17,30 +17,15 @@ services:
       dockerfile: ./docker/production/api/Dockerfile
     container_name: api-menu
     command: /bin/sh /start.sh
-    expose:
-      - 8000
+    ports:
+      - 8000:8000
     env_file:
       - .env
     volumes:
-      - static:/staticfiles/
-      - media:/mediafiles/
+      - ./staticfiles:/staticfiles/
+      - ./mediafiles:/mediafiles/
     depends_on:
       - db-menu
-    networks:
-      - event-menu
-
-  nginx-menu:
-    build:
-      context: .
-      dockerfile: ./docker/production/nginx/Dockerfile
-    container_name: nginx-menu
-    volumes:
-      - static:/staticfiles/
-      - media:/mediafiles/
-    ports:
-      - 8080:80
-    depends_on:
-      - api-menu
     networks:
       - event-menu
 
@@ -50,5 +35,3 @@ networks:
 
 volumes:
   db:
-  static:
-  media:
