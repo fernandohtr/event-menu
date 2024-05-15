@@ -6,6 +6,7 @@ interface Product {
   name: string
   price: number
   image: string
+  display: boolean
 }
 
 export function Menu() {
@@ -36,6 +37,9 @@ export function Menu() {
                 <p>{ product.name }</p>
                 <p>R$ { product.price.toString().replace(".", ",") }</p>
               </div>
+              { !product.display &&
+                <div className="out-of-stock">Acabou</div>
+              }
             </div>
           )
         })}

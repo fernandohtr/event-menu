@@ -22,10 +22,12 @@ h2 {
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 1rem;
   overflow: hidden;
+  position: relative;
 }
 
 .image-box {
   overflow: hidden;
+  max-height: 300px;
 }
 
 .image-box img {
@@ -42,8 +44,6 @@ h2 {
   transform: scale(1.2);
 }
 
-
-
 .product-description {
   text-align: center;
   padding: 0.5rem;
@@ -53,4 +53,16 @@ h2 {
   font-size: 1.5rem;
   font-weight: 700;
   opacity: 1;
+}
+
+.out-of-stock {
+  color: #ffffff;
+  background-color: red;
+  position: absolute;
+  bottom: 45%;
+  left: -25%;
+  font-size: 4rem;
+  transform: rotate(-30deg);
+  width: 450px;
+  text-align: center;
 }
