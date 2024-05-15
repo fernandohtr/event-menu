@@ -6,7 +6,7 @@ from v1.models import Product, Sponsor
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ["name", "price", "image"]
+        fields = ["name", "price", "image", "display"]
 
 
 class SponsorSerializer(serializers.ModelSerializer):
