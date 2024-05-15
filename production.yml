@@ -29,6 +29,14 @@ services:
     networks:
       - event-menu
 
+  cache-menu:
+    image: redis:7-alpine
+    container_name: cache-menu
+    ports:
+      - 6379:6379
+    networks:
+      - event-menu
+
 networks:
   event-menu:
     driver: bridge
