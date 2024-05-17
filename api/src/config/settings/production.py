@@ -12,6 +12,16 @@ CSRF_TRUSTED_ORIGINS = [
     "https://cardapio.fernandohtr.com",
     "http://cardapio.fernandohtr.com",
 ]
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB"),
+        "USER": os.getenv("POSTGRES_USER"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
+        "HOST": os.getenv("POSTGRES_HOST"),
+        "PORT": os.getenv("POSTGRES_PORT"),
+    }
+}
 STATIC_ROOT = "/staticfiles/"
 MEDIA_ROOT = "/mediafiles/"
 CORS_ALLOWED_ORIGINS = [

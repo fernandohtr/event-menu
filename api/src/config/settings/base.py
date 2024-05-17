@@ -45,23 +45,6 @@ TEMPLATES = [
         },
     },
 ]
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB"),
-        "USER": os.getenv("POSTGRES_USER"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD"),
-        "HOST": os.getenv("POSTGRES_HOST"),
-        "PORT": os.getenv("POSTGRES_PORT"),
-    }
-}
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION":  os.getenv("REDIS_LOCATION"),
-    }
-}
-CACHE_TTL = 60 * 15
 WSGI_APPLICATION = "config.wsgi.application"
 AUTH_PASSWORD_VALIDATORS = [
     {
