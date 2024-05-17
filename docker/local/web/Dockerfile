@@ -13,4 +13,4 @@ RUN chmod +x /start.sh
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
-ENV VITE_API_URL http://localhost:8000/
+ENV VITE_API_URL http://localhost:8000

@@ -9,7 +9,7 @@ interface Sponsor {
 }
 
 
-export function Sponsor() {
+export function Sponsor(): JSX.Element {
   const [ sponsors, setSponsors ] = useState<Sponsor[]>([])
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export function Sponsor() {
     fetch(apiUrl)
       .then(response => response.json())
       .then(data => {
-        setSponsors(data)
+        setSponsors(shuffle(data))
       })
       .catch(error => console.warn(error))
   }, [])
@@ -39,4 +39,16 @@ export function Sponsor() {
       </div>
     </section>
   )
+}
+
+function shuffle(array: Sponsor[]): Sponsor[] {
+  let newArray: Sponsor[] = []
+  let randomIndex: number
+
+  while (array.length > 0) {
+    randomIndex = Math.floor(Math.random() * array.length)
+    let itemData = array.splice(randomIndex, 1)[0]
+    newArray.push(itemData)
+  }
+  return newArray
 }
